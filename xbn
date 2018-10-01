@@ -1,76 +1,81 @@
 #!/bin/bash
-#v1.5
+# xbn -- v1.5
+# xbn -- Easy user directory based bin folder for all your CLI needs. Once installed, simply convert and load
+# your scripts/programs with xbn. Type the name of your CLI script and run.
+# xbn conversions have been tested with bash and python up to this point. Keep in mind the OS will decide what version of
+# bash or python will be used. Make sure to specify in the code.
+#
 #open function:
-	if [ "$1" = "open" ]; then
-		open ~/.xbn
+if [ "$1" = "open" ]; then
+	open ~/.xbn
 #list function:
-	elif [ "$1" = "list" ]; then
-		echo ":: xbn: list:"
-		count=1
-		pushd ~/.xbn > /dev/null
-		ls | while read line; do
-  		if [ -f "$line" ]; then
-  			if [ "$line" = "xbn" ]; then
-  				echo "not for your eyes" > /dev/null
-  			else
-    			echo "  $count. $line"
-    			count=$((count+1))
-    		fi
-  		fi 
-		done
-		popd > /dev/null
+elif [ "$1" = "list" ]; then
+	echo ":: xbn: list:"
+	count=1
+	pushd ~/.xbn > /dev/null
+	ls | while read line; do
+		if [ -f "$line" ]; then
+			if [ "$line" = "xbn" ]; then
+				echo "not for your eyes" > /dev/null
+			else
+			echo "  $count. $line"
+			count=$((count+1))
+			fi
+		fi 
+	done
+	popd > /dev/null
 #load function:
-	elif [ "$1" = "load" ]; then
-		if [ -e ~/.xbn/$2 ]; then
-			echo ":: xbn: error"
-		else
-			path=`pwd`
-			sudo mv $path/$2 ~/.xbn/$2
-			if [ -e ~/.xbn/$2 ]; then
-				echo ":: xbn: $2 loaded"
-			else
-				echo ":: xbn: error"
-			fi
-		fi
-#remove function:
-	elif [ "$1" = "unload" ]; then
-		if [ -e ~/.xbn/$2 ]; then
-			path=`pwd`
-			sudo mv ~/.xbn/$2 $path/$2
-			if [ -e $path/$2 ]; then
-				echo ":: xbn: $2 unload"
-				echo ":: xbn: $2 moved to $path"
-			else
-				echo ":: xbn: error"
-			fi
-		else
-			echo ":: xbn: error"
-		fi
-#delete function:
-	elif [ "$1" = "delete" ]; then
-		if [ -e ~/.xbn/$2 ]; then
-			sudo rm ~/.xbn/$2
-			echo ":: xbn: $2 deleted"
-		else
-			echo ":: xbn: error"
-		fi
-#convert function:
-	elif [ "$1" = "convert" ]; then
-		path=`pwd`
-		file_name=$(echo $2 | cut -f 1 -d '.')
-		sudo cp $path/$2 $path/$file_name
-		sudo chmod +x $path/$file_name
-		if [ -e $path/$file_name ]; then
-			echo ":: xbn: $file_name converted"
-		else
-			echo ":: xbn: error"
-		fi
-#help function:
-	elif [ "$1" = "help" ]; then
-		echo ":: xbn: help:"
-		cat ~/.xbn/resources/help.txt
-		echo
+elif [ "$1" = "load" ]; then
+	if [ -e ~/.xbn/$2 ]; then
+		echo ":: xbn: error"
 	else
-		echo ":: xbn: unknown input"
-		echo ":: xbn: try 'xbn help'"
+		path=`pwd`
+		sudo mv $path/$2 ~/.xbn/$2
+		if [ -e ~/.xbn/$2 ]; then
+			echo ":: xbn: $2 loaded"
+		else
+			echo ":: xbn: error"
+		fi
 	fi
+#remove function:
+elif [ "$1" = "unload" ]; then
+	if [ -e ~/.xbn/$2 ]; then
+		path=`pwd`
+		sudo mv ~/.xbn/$2 $path/$2
+		if [ -e $path/$2 ]; then
+			echo ":: xbn: $2 unload"
+			echo ":: xbn: $2 moved to $path"
+		else
+			echo ":: xbn: error"
+		fi
+	else
+		echo ":: xbn: error"
+	fi
+#delete function:
+elif [ "$1" = "delete" ]; then
+	if [ -e ~/.xbn/$2 ]; then
+		sudo rm ~/.xbn/$2
+		echo ":: xbn: $2 deleted"
+	else
+		echo ":: xbn: error"
+	fi
+#convert function:
+elif [ "$1" = "convert" ]; then
+	path=`pwd`
+	file_name=$(echo $2 | cut -f 1 -d '.')
+	sudo cp $path/$2 $path/$file_name
+	sudo chmod +x $path/$file_name
+	if [ -e $path/$file_name ]; then
+		echo ":: xbn: $file_name converted"
+	else
+		echo ":: xbn: error"
+	fi
+#help function:
+elif [ "$1" = "help" ]; then
+	echo ":: xbn: help:"
+	cat ~/.xbn/resources/help.txt
+	echo
+else
+	echo ":: xbn: unknown input"
+	echo ":: xbn: try 'xbn help'"
+fi
