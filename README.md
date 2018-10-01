@@ -21,11 +21,11 @@ xbn convert myscript.sh
 xbn load myscript
 
 # Compatibility:
-[Stable:]
+Stable:
 - macOS 10.12.6
 - macOS 10.13.6
 - macOS 10.14.0
-[Beta:]
+Beta:
 - Linux
 - Unix
 
