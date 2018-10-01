@@ -11,11 +11,9 @@ Simple command line applications manager. Easily add your CLI scripts to you com
   7. convert  —-   converts programs to Unix executable.
 
 # Configuration:
-1. Add the following to .bash_profile in your home directory:
-
+1. Add the following to .bash_profile in your home directory: 
   PATH=$PATH":$HOME/.xbn
-2. Create a folder named: (.xbn) in your home directory.
-
+2. Create a folder named: (.xbn) in your home directory: 
   mkdir ~/.xbn
 
 # Syntax
