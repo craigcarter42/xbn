@@ -64,6 +64,14 @@ else
 	echo " xbn -- setup: ERROR unable to copy 'xbn' program"
 	echo " xbn -- setup: exit"; exit
 fi
+if [ -e ~/.bash_profile ]; then
+	cp ~/.bash_profile ~/.bash_profile-xbn-backup
+	echo ' # xbn: CLI application manager' >> ~/.bash_profile
+	echo ' PATH=$PATH":$HOME/.xbn"' >> ~/.bash_profile
+	echo " xbn -- setup: '.bash_profile' sucesfully updated"
+else
+	echo " xbn -- setup: ERROR unable to edit '.bash_profile' file"
+fi
 echo " xbn -- setup: completed"
 echo " xbn -- setup: exit"
 
