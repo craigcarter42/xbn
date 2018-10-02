@@ -16,7 +16,7 @@ Manually Installation:
 2. Create a folder named: (.xbn) in your home directory:    mkdir ~/.xbn
 3. Copy xbn executable into the .xbn folder
 
-Using Setup file:
+- Using Setup file:
 Use sh setup_xbn.sh in your terminal of choice to install.
 
 # Syntax
