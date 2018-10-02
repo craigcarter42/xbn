@@ -18,8 +18,6 @@ Manually Installation:
 
 Using Setup file:
 
-
-
 Use sh setup_xbn.sh in your terminal of choice to install.
 
 # Syntax
