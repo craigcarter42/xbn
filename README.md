@@ -11,13 +11,14 @@ Simple command line applications manager. Easily add your CLI scripts to you com
   7. convert  —-   converts programs to Unix executable.
 
 #### Configuration:
-Manually Installation:
-1. Add the following to .bash_profile in your home directory:    PATH=$PATH":$HOME/.xbn
-2. Create a folder named: (.xbn) in your home directory:    mkdir ~/.xbn
+**Manually Installation:**
+1. Add the following to .bash_profile in your home directory:...
+PATH=$PATH":$HOME/.xbn
+2. Create a folder named: (.xbn) in your home directory:...
+mkdir ~/.xbn
 3. Copy xbn executable into the .xbn folder
 
-Using Setup file:
-
+**Using Setup file:**
 
 Use sh setup_xbn.sh in your terminal of choice to install.
 
@@ -31,7 +32,7 @@ Stable:
 - macOS 10.13.6
 - macOS 10.14.0
 
-*Beta:*
+Beta:
 - Linux
 - Unix
 
