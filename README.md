@@ -12,13 +12,11 @@ Simple command line applications manager. Easily add your CLI scripts to you com
 
 #### Configuration:
 **Manually Installation:**
-1. Add the following to .bash_profile in your home directory:
-...
-PATH=$PATH":$HOME/.xbn
-2. Create a folder named: (.xbn) in your home directory:
-...
-mkdir ~/.xbn
-3. Copy xbn executable into the .xbn folder
+1. Add the following to .bash_profile in your home directory:  
+PATH=$PATH":$HOME/.xbn  
+2. Create a folder named: (.xbn) in your home directory:  
+mkdir ~/.xbn  
+3. Copy xbn executable into the .xbn folder  
 
 **Using Setup file:**
 
